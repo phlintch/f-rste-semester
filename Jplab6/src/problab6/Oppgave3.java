@@ -96,61 +96,41 @@ public class Oppgave3 {
 		return returTab;
 	}
 
-	public static int[][] multipliser2(int[][] mat1, int[][] mat2) {
-
-		int lengde3 = Math.min(mat1.length, mat2.length);
-		int teller = 0;
-
-		int[][] returTab = new int[lengde3][lengde3];
-		int x = 0;
-		int y = 0;
-		for (int a = 0; a < mat1.length; a++) {
-			for (int a1 = 0; a1 < mat1.length; a1++) {
-				for (int b = 0; b < mat2.length; b++) {
-					
-				returTab[x][y] = mat1[a][b] * mat2[b][a1];
-				
-					
-					y++;
-			}
-					x++;
-					y=0;
-			}
-			x=0; 			// sjekk returtab[x][y];
-		}
-
-		return returTab;
-	}
-
 	public static int[][] multipliser1(int[][] mat1, int[][] mat2) {
 
-		int lengde1 = mat1.length;
-		int lengde2 = mat2.length;
-
-		int lengde3 = mat1[0].length;
-
-		int[][] returTab = new int[lengde1][lengde2];
-
-		for (int i = 0; i < lengde1; i++) {
-			for (int j = 0; j < lengde2; j++) {
-
-				for (int k = 0; k < lengde3; k++) {
-					returTab[i][j] = returTab[i][j] + mat1[i][k] * mat2[k][j];
+		int nyTabLengde = Math.min(mat1.length, mat2.length);
+		int[][] returTab = new int[nyTabLengde][nyTabLengde];
+		int x = 0;
+		int y = 0;
+		int teller = 0;
+		for (int a = 0; a < Math.min(mat1.length, mat2.length); a++) {
+			for (int a1 = 0; a1 < Math.min(mat1.length, mat2.length); a1++) {
+				for (int b = 0; b < Math.max(mat1.length, mat2.length); b++) {
+					teller += mat1[a][b] * mat2[b][a1];
 				}
 
+				returTab[x][y] = teller;
+				y++;
+				teller = 0;
 			}
+
+			y = 0;
+			x++;
 		}
 		return returTab;
 	}
 
 	public static void main(String[] args) {
 
+		int[][] multi1TestA = { { 1, 2, 3 }, { 4, 5, 6 } };
+		int[][] multi1TestB = { { 4, 5 }, { 3, 7 }, { 4, 1 } };
+
 		int[][] y = { { 1, 2, 3 }, { 4, 5, 6 } };
 
 		int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		int[][] c = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 
-		int[][] b = { { 12, 32, 43 }, { 14, 65, 66}, { 27, 38, 91 } };
+		int[][] b = { { 12, 32, 43 }, { 14, 65, 66 }, { 27, 38, 91 } };
 
 		int[][] d = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		System.out.println(erLik(c, d));
@@ -161,7 +141,6 @@ public class Oppgave3 {
 		System.out.println(erLik(a, b));
 		System.out.println(search(d, 11));
 		System.out.println(tilStreng(speile(d)));
-		System.out.println(tilStreng(multipliser1(b, d))); // funker bare for 3x3 matriser ?
-		System.out.println(tilStreng(multipliser2(c, d)));
+		System.out.println(tilStreng(multipliser1(multi1TestA, multi1TestB)));
 	}
 }
