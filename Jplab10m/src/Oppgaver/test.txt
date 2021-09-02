@@ -1,0 +1,13 @@
+hei
+nå
+skriver
+vi
+en
+fil
+med
+så
+mange
+linjer som overhode mulig
+nå bare tester vi hvilken linje 
+som blir skippet eller 
+ikke

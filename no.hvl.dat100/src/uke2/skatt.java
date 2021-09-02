@@ -17,32 +17,32 @@ public class skatt {
 		// gjør det om til dagens skatte tall og legg det inn i en tabell og hent verdiene derfra for å gjøre
 		// det mer effektivt / ryddig 
 
-		if (inntekt > 934051) {
+		if (inntekt > 1021550) {
 
-			skatt = skatt + inntekt % 934051 * 0.1452;
-			inntekt = inntekt - inntekt % 934051;
+			skatt = skatt + inntekt % 1021550 * 0.162;
+			inntekt = inntekt - inntekt % 1021550;
 		}
-		if (inntekt > 580651 && inntekt <= 934051) {
-			skatt = skatt + inntekt % 580651 * 0.1152;
-			inntekt = inntekt - (inntekt % 580651);
+		if (inntekt > 651250 && inntekt <= 1021550) {
+			skatt = skatt + inntekt % 651250 * 0.132;
+			inntekt = inntekt - (inntekt % 651250);
 		}
-		if (inntekt > 230951 && inntekt <= 580651) {
-			skatt = skatt + inntekt % 230951 * 0.0241;
-			inntekt = inntekt - (inntekt % 230951);
-			skatt = skatt + inntekt%164100*0.0093;
+		if (inntekt > 260100 && inntekt <= 651250) {
+			skatt = skatt + inntekt % 260100 * 0.04;
+			inntekt = inntekt - (inntekt % 260100);
+			skatt = skatt + inntekt%184800*0.017;
 			int temp = inntekt;
-			if (temp > 230951) {
-				skatt = skatt + 230951-164100*0.0093;
+			if (temp > 260100) {
+				skatt = skatt + 230951-184800*0.017;
 			}
 		}
-		if (inntekt > 164100 && inntekt <= 230951) {
-			skatt = skatt + inntekt % 164100 * 0.0093;
-			inntekt = inntekt - inntekt % 164100;
+		if (inntekt > 184800 && inntekt <= 260100) {
+			skatt = skatt + inntekt % 184800 * 0.017;
+			inntekt = inntekt - inntekt % 184800;
 					}
 		if (inntekt < 0) {
 			showMessageDialog(null, "error");
 		}			// 	Ikkje 100% på om alt dette er rett, må sjekkes før innlevert.
-		showMessageDialog(null, "Du må skatte en total av: " + skatt);
+		showMessageDialog(null, "Du må skatte en total av: " + Math.round(skatt*100)/100);
 
 	}
 }
