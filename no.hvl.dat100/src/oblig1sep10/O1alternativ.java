@@ -9,7 +9,7 @@ public class O1alternativ {
 		String input = showInputDialog(null, "Din brutto inntekt: ");
 		int inntekt = Integer.parseInt(input);
 		double skatt = 0;
-		if (inntekt < 184799) {
+		if (inntekt < 184800) {
 			skatt = 0;
 		} else if (inntekt >= 184800 && inntekt < 260100) {
 			skatt = inntekt * 0.017;
