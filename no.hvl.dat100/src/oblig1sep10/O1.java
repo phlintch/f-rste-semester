@@ -1,10 +1,15 @@
 package oblig1sep10;
 
 import static javax.swing.JOptionPane.showInputDialog;
+import java.text.DecimalFormat;
 import static javax.swing.JOptionPane.showMessageDialog;
 
+import java.text.DecimalFormat;
+
 public class O1 {
+	private static DecimalFormat format = new DecimalFormat("#.##");
 	public static void main(String[] args) {
+		
 		String input = showInputDialog(null, "Din brutto inntekt: ");
 		int inntekt = Integer.parseInt(input);
 		double skatt = 0;
@@ -37,7 +42,7 @@ public class O1 {
 			showMessageDialog(null, "error");
 		}			// 	innser at jeg kanskje har gjort denne oppgaven mye vanskeligere enn den 
 					//  trenger å være, men antar at det ikkje er et problem.
-		showMessageDialog(null, "Du må skatte en total av: " + Math.round(skatt*100)/100);
+		showMessageDialog(null, "Du må skatte en total av: " + format.format(skatt));
 
 	}
 }
